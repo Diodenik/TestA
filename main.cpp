@@ -14,5 +14,5 @@ int Sum(int a){
 
 int main()
 {
-    qDebug()<<Sum(9);
+    qDebug()<<Sum(9); //Hello
 }
