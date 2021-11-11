@@ -3,31 +3,19 @@
 
 using namespace std;
 
-int main()
+void fillArr(int* const* const arr, const int col, const int row)
 {
-    int row;
-    int col;
-
-    cout<<"Enter q-ty of row"<<endl;
-    cin>>row;
-    cout<<"Enter q-ty of col"<<endl;
-    cin>>col;
-
-    int **arr = new int* [row];
-
-    for(int i = 0; i < row; i++)
-    {
-        arr[i] = new int[col];
-    }
-    ////////////////////////////
     for(int i = 0; i < row; i++)
     {
         for(int j = 0; j < col; j++)
         {
-            arr[i][j] = rand() % 50;
+            arr[i][j] = rand()%10;
         }
     }
+}
 
+void showArr(const int* const* const arr, const int col, const int row)
+{
     for(int i = 0; i < row; i++)
     {
         for(int j = 0; j < col; j++)
@@ -36,12 +24,21 @@ int main()
         }
         cout<<endl;
     }
+}
 
+int main()
+{
+ int row = 10;
+ int col = 10;
 
-    ////////////////////////////
-    for(int i = 0; i < row; i++)
-    {
-        delete [] arr[i];
-    }
-    delete [] arr;
+ int **arr = new int* [row];
+
+ for(int i = 0; i < row; i++)
+ {
+     arr[i] = new int[col];
+ }
+
+ fillArr(arr, col, row);
+ showArr(arr, row, col);
+
 }
